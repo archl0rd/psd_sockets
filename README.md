@@ -1,2 +1,6 @@
 # psd_sockets
-Traalho para a disciplina Programação de Sistemas Distribuídos
+#
+# Adriano Freitas <https://adrianofreitas.me>
+# Robson Marques <http://rbmarques.com.br>
+#
+Trabalho para a disciplina Programação de Sistemas Distribuídos

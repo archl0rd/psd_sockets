@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# @author Adriano Freitas <https://adrianofreitas.me>
+# Adriano Freitas <https://adrianofreitas.me>
 # Robson Marques <http://rbmarques.com.br>
 #
 import socket
@@ -9,6 +9,8 @@ PORT = 1337
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST, PORT)
 tcp.connect(dest)
+print '\n'
+print 'Trabalho para a disciplina Programação de Sistemas Distribuídos'
 print 'Para sair use CTRL+X\n'
 msg = raw_input()
 while msg <> '\x18':
