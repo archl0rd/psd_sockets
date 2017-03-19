@@ -1,6 +1,11 @@
+#!/usr/bin/python
+#
+# Adriano Freitas <https://adrianofreitas.me>
+# Robson Marques <http://rbmarques.com.br>
+#
 import socket
-HOST = ''              # Endereco IP do Servidor
-PORT = 5000            # Porta que o Servidor esta
+HOST = ''
+PORT = 1337
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 orig = (HOST, PORT)
 tcp.bind(orig)
