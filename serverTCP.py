@@ -25,7 +25,7 @@ while True:
         msg = con.recv(1024)
         if not msg: break
         if msg == 'menu':
-            con.sendall(msg)
+            con.sendall("OK")
         print cliente, msg
     print 'Finalizando conexao..', cliente
     con.close()

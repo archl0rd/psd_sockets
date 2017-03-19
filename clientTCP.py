@@ -25,6 +25,9 @@ def solicitaRecurso(comando):
     dest = (HOST, PORT)
     tcp.connect(dest)
     tcp.send (comando)
+
+    reply = tcp.recv(131072)
+    print "recvd: ", reply
     #msg = raw_input()
     #while msg <> '\x18':#enquanto a msg for diferente de CTRL+x
     #    tcp.send (msg)
@@ -32,6 +35,8 @@ def solicitaRecurso(comando):
 
     #encerra conexão
     tcp.close()
+
+
 
 def main(argv):
     # exibe autores
@@ -52,6 +57,7 @@ def main(argv):
             sys.exit()
         elif opt in ("-m", "--menu"):
             solicitaRecurso("menu")
+            sys.exit()
 
 
 # chama a função principal
