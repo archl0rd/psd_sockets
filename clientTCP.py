@@ -1,3 +1,4 @@
+
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 #
@@ -21,17 +22,24 @@ def ajuda():
 def solicitaRecurso(comando):
     HOST = '127.0.0.1'
     PORT = 1337
+    #cria socket tcp
     tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    #info do servidor
     dest = (HOST, PORT)
+    #cria conexão
     tcp.connect(dest)
+    #envia oscomandos
     tcp.send (comando)
 
+    # espera a resposta do servidor
     reply = tcp.recv(16384)
     print "Resposta Servidor:\n ", reply
+    ### nao descomente...ainda
     #msg = raw_input()
     #while msg <> '\x18':#enquanto a msg for diferente de CTRL+x
     #    tcp.send (msg)
     #    msg = raw_input()
+
 
     #encerra conexão
     tcp.close()
@@ -45,6 +53,7 @@ def main(argv):
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hm:v", ["help", "menu"])
     except getopt.GetoptError:
+        # erro padrão, caso a opção seja inválida
         print '\npython clientTCP.py --help\tPara exibir ajuda.'
         sys.exit(2)
 

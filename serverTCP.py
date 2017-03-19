@@ -8,11 +8,7 @@ import socket
 HOST = ''
 PORT = 1337
 
-def menu():
-    print '1 - Listar recursos existentes'
-    print '2 - Status recurso'
-    print '3 - Reservar recurso'
-    print '4 - Liberar recurso'
+menu = "\n1 - Listar recursos existentes\n2 - Status recurso\n3 - Reservar recurso\n4 - Liberar recurso"
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 orig = (HOST, PORT)
@@ -25,7 +21,8 @@ while True:
         msg = con.recv(1024)
         if not msg: break
         if msg == 'menu':
-            con.sendall("\n1 - Listar recursos existentes\n2 - Status recurso\n3 - Reservar recurso\n4 - Liberar recurso")
+            #envia resposta para o cliente
+            con.sendall(menu)
 
         print cliente, msg
     print 'Finalizando conexao..', cliente
