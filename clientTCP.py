@@ -26,8 +26,8 @@ def solicitaRecurso(comando):
     tcp.connect(dest)
     tcp.send (comando)
 
-    reply = tcp.recv(131072)
-    print "recvd: ", reply
+    reply = tcp.recv(16384)
+    print "Resposta Servidor:\n ", reply
     #msg = raw_input()
     #while msg <> '\x18':#enquanto a msg for diferente de CTRL+x
     #    tcp.send (msg)
