@@ -26,7 +26,7 @@ def solicitaRecurso(comando):
     tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     #info do servidor
     dest = (HOST, PORT)
-    #cria conexão
+    #cria conexao
     tcp.connect(dest)
     #envia oscomandos
     tcp.send (comando)
@@ -41,7 +41,7 @@ def solicitaRecurso(comando):
     #    msg = raw_input()
 
 
-    #encerra conexão
+    #encerra conexao
     tcp.close()
 
 
@@ -53,7 +53,7 @@ def main(argv):
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hm:v", ["help", "menu"])
     except getopt.GetoptError:
-        # erro padrão, caso a opção seja inválida
+        # erro padrao, caso a opcao seja invalida
         print '\npython clientTCP.py --help\tPara exibir ajuda.'
         sys.exit(2)
 
@@ -69,6 +69,6 @@ def main(argv):
             sys.exit()
 
 
-# chama a função principal
+# chama a funcao principal
 if __name__ == "__main__":
     main(sys.argv[1:])
