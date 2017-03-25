@@ -6,7 +6,7 @@
 #
 import socket
 HOST = ''
-PORT = 1337
+PORT = 2048
 
 menu = "\n1 - Listar recursos existentes\n2 - Status recurso\n3 - Reservar recurso\n4 - Liberar recurso"
 

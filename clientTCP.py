@@ -21,7 +21,7 @@ def ajuda():
 
 def solicitaRecurso(comando):
     HOST = '127.0.0.1'
-    PORT = 1337
+    PORT = 2048
     #cria socket tcp
     tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     #info do servidor
