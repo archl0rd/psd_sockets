@@ -8,7 +8,7 @@ import socket
 HOST = ''
 PORT = 2048
 
-menu = "\n1 - Listar recursos existentes\n2 - Status recurso\n3 - Reservar recurso\n4 - Liberar recurso"
+menu = "\n1 - Listar salas existentes\n2 - Status sala\n3 - Reservar sala\n4 - Liberar sala"
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 orig = (HOST, PORT)
