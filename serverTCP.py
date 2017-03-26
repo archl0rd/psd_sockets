@@ -10,7 +10,7 @@ import sys, os
 
 def banner():
     os.system('clear')
-    print '#!/usr/bin/python'
+    print '#!/usr/bin/python2'
     print '# Adriano Freitas <https://adrianofreitas.me>'
     print '# Robson Marques  <http://rbmarques.com.br>'
     print '# Server Side'
@@ -18,6 +18,7 @@ def banner():
 
 def ajuda():
     ajuda = "\nCOD\t\tFUNCAO\nlist   \t\tListar Salas\nstatus   \tExibir Status Salas\nallocate <N>\tReservar Sala\ndeallocate <N>\tLiberar Sala\nhelp   \t\tExibir Ajuda"
+    ajuda += "\nExemplo:\n\tallocate 1\n\tdeallocate 1"
     return ajuda
 def criarSala():
     matriz = []

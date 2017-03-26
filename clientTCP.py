@@ -11,7 +11,7 @@ import sys, getopt, os
 
 def banner():
     os.system('clear')
-    print '#!/usr/bin/python'
+    print '#!/usr/bin/python2'
     print '# Adriano Freitas <https://adrianofreitas.me>'
     print '# Robson Marques  <http://rbmarques.com.br>'
     print '# Client Side'
@@ -43,39 +43,47 @@ def main(argv):
             verbose = True
             sys.exit()
         elif opt in ("-h", "--help"):
+            banner()
             tcp.send ("help")
             sys.exit()
         elif opt in ("-c", "--connect"):
             print '\nhelp\tPara exibir ajuda.'
+            print '\nDIGITE UM COMANDO: '
             cmd = raw_input()
             while cmd <> 'exit':#enquanto a msg for diferente de CTRL+x
                 if cmd == 'help':
+                    banner()
                     tcp.send(cmd)
                     reply = tcp.recv(1024)
                     print reply
 
                 elif cmd == 'list':
+                    banner()
                     tcp.send(cmd)
                     reply = tcp.recv(1024)
                     print reply
 
-                elif cmd == 'status':
+                elif cmd.find('status') >= 0:
+                    banner()
                     tcp.send(cmd)
                     reply = tcp.recv(1024)
                     print reply
 
                 elif cmd.find('deallocate') >= 0:
+                    banner()
                     tcp.send(cmd)
                     reply = tcp.recv(1024)
                     print reply
 
                 elif cmd.find('allocate') >= 0:
+                    banner()
                     tcp.send(cmd)
                     reply = tcp.recv(1024)
                     print reply
                 else:
                     print 'Comando invalido!'
 
+                print '\nDIGITE UM COMANDO: '
                 cmd = raw_input()
             sys.exit()
     tcp.close
