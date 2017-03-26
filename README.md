@@ -6,8 +6,8 @@
 
 ## Trabalho para a disciplina Programação de Sistemas Distribuídos
 
-- Para executar  o servidor:
--- python2 serverTCP.py
+## Para executar  o servidor:
+- python2 serverTCP.py
 
-- Para executar  o cliente:
--- python2 clientTCP.py --connect
+## Para executar  o cliente:
+- python2 clientTCP.py --connect
