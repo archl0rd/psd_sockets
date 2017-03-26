@@ -6,6 +6,8 @@
 
 ## Trabalho para a disciplina Programação de Sistemas Distribuídos
 
-- Escrito em python2
-- Para saber entender o funcionamento rode o comando abaixo
-# python2 --help
+- Para executar  o servidor:
+-- python2 serverTCP.py
+
+- Para executar  o cliente:
+-- python2 clientTCP.py --connect
