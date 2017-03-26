@@ -5,21 +5,23 @@
 # Adriano Freitas <https://adrianofreitas.me>
 # Robson Marques <http://rbmarques.com.br>
 #
-import socket
-import sys, getopt
+
+import socket, struct
+import sys, getopt, os
 
 def banner():
+    os.system('clear')
     print '#!/usr/bin/python'
     print '# Adriano Freitas <https://adrianofreitas.me>'
     print '# Robson Marques  <http://rbmarques.com.br>'
-    print '\n'
+    print '# Client Side'
 
-def ajuda():
-    print '-h\t--help\tExibir Ajuda'
-    print '-m\t--menu\tExibir Menu'
-    print '\n'
 
-def solicitaRecurso(comando):
+
+def main(argv):
+    # exibe autores
+    banner()
+
     HOST = '127.0.0.1'
     PORT = 2048
     #cria socket tcp
@@ -28,30 +30,9 @@ def solicitaRecurso(comando):
     dest = (HOST, PORT)
     #cria conexao
     tcp.connect(dest)
-    #envia oscomandos
-    tcp.send (comando)
-
-    # espera a resposta do servidor
-    reply = tcp.recv(16384)
-    print "Resposta Servidor:\n ", reply
-    ### nao descomente...ainda
-    #msg = raw_input()
-    #while msg <> '\x18':#enquanto a msg for diferente de CTRL+x
-    #    tcp.send (msg)
-    #    msg = raw_input()
-
-
-    #encerra conexao
-    tcp.close()
-
-
-
-def main(argv):
-    # exibe autores
-    banner()
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hm:v", ["help", "menu"])
+        opts, args = getopt.getopt(sys.argv[1:], "hc:v", ["help", "connect"])
     except getopt.GetoptError:
         # erro padrao, caso a opcao seja invalida
         print '\npython clientTCP.py --help\tPara exibir ajuda.'
@@ -62,12 +43,42 @@ def main(argv):
             verbose = True
             sys.exit()
         elif opt in ("-h", "--help"):
-            ajuda()
+            tcp.send ("help")
             sys.exit()
-        elif opt in ("-m", "--menu"):
-            solicitaRecurso("menu")
-            sys.exit()
+        elif opt in ("-c", "--connect"):
+            print '\nhelp\tPara exibir ajuda.'
+            cmd = raw_input()
+            while cmd <> 'exit':#enquanto a msg for diferente de CTRL+x
+                if cmd == 'help':
+                    tcp.send(cmd)
+                    reply = tcp.recv(1024)
+                    print reply
 
+                elif cmd == 'list':
+                    tcp.send(cmd)
+                    reply = tcp.recv(1024)
+                    print reply
+
+                elif cmd == 'status':
+                    tcp.send(cmd)
+                    reply = tcp.recv(1024)
+                    print reply
+
+                elif cmd.find('deallocate') >= 0:
+                    tcp.send(cmd)
+                    reply = tcp.recv(1024)
+                    print reply
+
+                elif cmd.find('allocate') >= 0:
+                    tcp.send(cmd)
+                    reply = tcp.recv(1024)
+                    print reply
+                else:
+                    print 'Comando invalido!'
+
+                cmd = raw_input()
+            sys.exit()
+    tcp.close
 
 # chama a funcao principal
 if __name__ == "__main__":
